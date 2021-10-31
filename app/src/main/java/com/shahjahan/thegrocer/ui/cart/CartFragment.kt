@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shopkart.ui.home.ItemAdapter
 import com.shahjahan.thegrocer.R
 import com.shahjahan.thegrocer.models.CartModel
 import com.shahjahan.thegrocer.ui.SpaceItemDecorationCart

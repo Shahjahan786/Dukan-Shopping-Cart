@@ -2,10 +2,12 @@ package com.shahjahan.thegrocer.viewmodels
 
 import android.app.Application
 import android.widget.Toast
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.shahjahan.thegrocer.repository.MainRepository
-
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
 
 class CartViewModel(
     application: Application,

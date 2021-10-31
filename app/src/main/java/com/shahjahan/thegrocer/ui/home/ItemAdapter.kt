@@ -1,20 +1,14 @@
 package com.example.shopkart.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.shahjahan.thegrocer.R
 import com.shahjahan.thegrocer.models.ProductModel
 import com.shahjahan.thegrocer.utility.bindImage
-import java.util.zip.Inflater
 
 
 class ItemAdapter(private val dataSet: List<ProductModel>, val actionlistener: Actionlistener) :

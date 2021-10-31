@@ -1,10 +1,12 @@
 package com.shahjahan.thegrocer.viewmodels
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.shahjahan.thegrocer.db.entities.Product
-import com.shahjahan.thegrocer.models.ProductModel
 import com.shahjahan.thegrocer.repository.MainRepository
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: MainRepository) : ViewModel() {
 
