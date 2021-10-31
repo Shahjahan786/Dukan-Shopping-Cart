@@ -11,7 +11,6 @@ import com.shahjahan.thegrocer.R
 fun ImageView.bindImage(imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-
         Glide.with(this)
             .load(imgUri)
             .apply(
