@@ -13,8 +13,9 @@ import com.shahjahan.thegrocer.network.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MainRepository(private val database: GrocerDatabase) {
+class MainRepository @Inject constructor(private val database: GrocerDatabase) {
 
     val cartForAccount: LiveData<List<CartModel>> =
         Transformations.map(database.mainDao.getCartForRecView()) { it.asCartModel() }

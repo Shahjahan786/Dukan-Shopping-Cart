@@ -8,6 +8,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,19 +18,19 @@ import com.example.shopkart.ui.home.ItemAdapter.Actionlistener
 import com.shahjahan.thegrocer.R
 import com.shahjahan.thegrocer.models.ProductModel
 import com.shahjahan.thegrocer.viewmodels.HomeViewModel
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(), Actionlistener{
 
-    lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModels()
 
     lateinit var recyclerView: RecyclerView
     lateinit var progressBar: ProgressBar;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
+
     }
 
 

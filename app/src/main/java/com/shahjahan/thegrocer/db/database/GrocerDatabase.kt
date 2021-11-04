@@ -8,6 +8,9 @@ import com.shahjahan.thegrocer.db.entities.Account
 import com.shahjahan.thegrocer.db.entities.Cart
 import com.shahjahan.thegrocer.db.entities.Product
 import com.shahjahan.thegrocer.db.dao.MainDao
+import dagger.Provides
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Singleton
 
 @Database(entities = [Product::class, Cart::class, Account::class], version = 1)
 abstract class GrocerDatabase : RoomDatabase() {

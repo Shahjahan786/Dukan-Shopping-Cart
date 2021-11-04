@@ -6,9 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.shahjahan.thegrocer.db.entities.Product
 import com.shahjahan.thegrocer.repository.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel(private val repository: MainRepository) : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
     //For loading screen => progress bar
     enum class ApiStatus { LOADING, DONE, ERROR }

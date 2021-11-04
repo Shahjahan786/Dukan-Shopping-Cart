@@ -1,5 +1,5 @@
 package com.shahjahan.thegrocer.di
-
+/*
 import com.shahjahan.thegrocer.db.database.getDatabase
 import com.shahjahan.thegrocer.repository.MainRepository
 import com.shahjahan.thegrocer.viewmodels.AccountViewModel
@@ -23,4 +23,4 @@ val viewModelModule = module(override = true) {
     viewModel {
         AccountViewModel(get())
     }
-}
+}*/

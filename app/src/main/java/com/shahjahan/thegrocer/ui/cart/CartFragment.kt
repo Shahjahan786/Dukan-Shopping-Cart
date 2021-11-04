@@ -8,22 +8,23 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.shahjahan.thegrocer.R
 import com.shahjahan.thegrocer.models.CartModel
 import com.shahjahan.thegrocer.ui.SpaceItemDecorationCart
 import com.shahjahan.thegrocer.viewmodels.CartViewModel
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
+import dagger.hilt.android.AndroidEntryPoint
 
-class CartFragment : Fragment(), CartAdapter.Actionlistener{
+@AndroidEntryPoint
+class CartFragment : Fragment(), CartAdapter.Actionlistener {
 
-    lateinit var viewModel: CartViewModel
+    private val viewModel: CartViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
+
     }
 
     override fun onCreateView(
@@ -31,7 +32,7 @@ class CartFragment : Fragment(), CartAdapter.Actionlistener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      val view = inflater.inflate(
+        val view = inflater.inflate(
             R.layout.fragment_cart, container, false
         )
 
@@ -58,13 +59,12 @@ class CartFragment : Fragment(), CartAdapter.Actionlistener{
 
             totalBill(totalBillView, it)
 
-            if (it.isNullOrEmpty()){
+            if (it.isNullOrEmpty()) {
                 layout.visibility = View.VISIBLE
                 recyclerView.visibility = View.GONE
                 pay.visibility = View.GONE
-                totalBillView.text= ""
-            }
-            else{
+                totalBillView.text = ""
+            } else {
                 layout.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
                 pay.visibility = View.VISIBLE
@@ -78,13 +78,12 @@ class CartFragment : Fragment(), CartAdapter.Actionlistener{
     private fun totalBill(
         price: TextView,
         list: List<CartModel>?
-    ){
+    ) {
         var sum = 0.0;
-        if (list.isNullOrEmpty()){
+        if (list.isNullOrEmpty()) {
             println("heyy null")
-        }
-        else {
-            for (items in list){
+        } else {
+            for (items in list) {
                 sum += items.price.toDouble()
             }
         }
@@ -96,10 +95,9 @@ class CartFragment : Fragment(), CartAdapter.Actionlistener{
         progressBar: ProgressBar,
         loading: Boolean
     ) {
-        if (loading){
+        if (loading) {
             progressBar.visibility = View.VISIBLE
-        }
-        else{
+        } else {
             progressBar.visibility = View.GONE
         }
     }

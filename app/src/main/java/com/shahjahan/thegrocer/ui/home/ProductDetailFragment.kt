@@ -5,29 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.shopkart.ui.home.ItemAdapter
-import com.example.shopkart.ui.home.ItemAdapter.Actionlistener
 import com.shahjahan.thegrocer.R
 import com.shahjahan.thegrocer.db.entities.Product
-import com.shahjahan.thegrocer.models.ProductModel
 import com.shahjahan.thegrocer.utility.bindImage
 import com.shahjahan.thegrocer.viewmodels.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 
+@AndroidEntryPoint
 class ProductDetailFragment : Fragment(){
 
-    lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModels();
     lateinit var itemName: TextView
     lateinit var itemPrice: TextView
     lateinit var itemImage: ImageView
@@ -36,7 +29,7 @@ class ProductDetailFragment : Fragment(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
+
     }
 
 
